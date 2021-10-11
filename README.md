@@ -1,42 +1,31 @@
-# Frontend template
+### User stories for this project:
 
-This is a simple react/redux/jwt template to start a project quickly
+For artists:
 
-## Table of contents:
+- As a user, I would like to have quick overview of the events.
+- As a user, I would like to sign up and login. I must register before I can add an event, get access to the forum, e-mail my fans and view the venues.
+- As a user, I can promote my event by adding it to agenda, with an image, date, link and a short description (max. 100 words).
+- As a user, I am able to create an e-mail list and use this to send messages to my audience.
+- As a user, I am able to create a new discussion in the forum.
+- As a user, I am able to post text and images and delete them.
+- As a user, I can flag a post to the host.
 
-- **[Setup](#setup-how-to-use-this-template)**
-- **[Create React App docs](#cra-docs)**
+For promoters:
 
-## SETUP How to use this template
+- As a user, I would like to have quick overview of the events.
+- As a user, I would like to sign up and login. I must register before I can add an event, get access to the forum and e-mail my audience.
+- As a user, I can promote my event by adding it to agenda, with an image, date, link and a short description (max. 100 words).
+- As a user, I am able to create an e-mail list and use this to send messages to my audience.
+- As a user, I am able to create a new discussion in the forum.
+- As a user, I am able to post text and images and delete them.
+- As a user, I can flag a post to the host.
 
-1. Create a new project based on this template using the `Use this template` button
+For audience:
 
-![HOW_TO_USE](https://user-images.githubusercontent.com/20372832/77003323-70966180-695d-11ea-8abe-b362d57135f3.gif)
+- As a user, I would like to have quick overview of the events without having to log in.
+- As a user, I would like to sign up for event notifications and the monthtly newsletter.
 
-2. Clone the app
+For admin website:
 
-```
-git clone git@github.com:YOUR_GITHUB_NAME/YOUR_PROJECT_NAME.git
-```
-
-3. cd into your project
-
-```
-cd YOUR_PROJECT_NAME
-```
-
-4. install dependencies
-
-```
-npm install
-```
-
-5. Start development server with npm start
-
-```
-npm start
-```
-
-## CRA docs
-
-The normal Create React App docs can be found in [CRA_DOCS.md](./CRA_DOCS.md)
+- As a user, I can pin forum discussions to the top.
+- As a user, I can delete all messages in a forum.
