@@ -1,5 +1,6 @@
 import React from "react";
 import { Jumbotron } from "react-bootstrap";
+import moment from "moment";
 
 export default function EventCard(props) {
   const { event } = props;
@@ -14,7 +15,7 @@ export default function EventCard(props) {
           style={{ width: "50%" }}
         ></img>
         <h4>{event.title}</h4>
-        <p>{event.date}</p>
+        <p>{moment(event.date).format("ddd, MMM   Do")}</p>
         <a href={event.link}>Link</a>
         <p>{event.description}</p>
       </div>

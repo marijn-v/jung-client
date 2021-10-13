@@ -4,11 +4,14 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 // import ListItemText from "@mui/material/ListItemText";
 import ListSubheader from "@mui/material/ListSubheader";
+import moment from "moment";
 
 import { selectEvents } from "../store/event/selectors";
 
 export default function PinnedSubheaderList() {
   const events = useSelector(selectEvents);
+
+  const sortedEvents = [...events].sort((a, b) => b.date - a.date);
 
   return (
     <List
@@ -24,10 +27,13 @@ export default function PinnedSubheaderList() {
       }}
       subheader={<li />}
     >
-      {events.map((event) => (
+      {sortedEvents.map((event) => (
         <li>
           <ul>
-            <ListSubheader>{event.date}</ListSubheader>
+            <ListSubheader>
+              {moment(event.date).format("ddd, MMM   Do")}
+            </ListSubheader>
+
             <ListItem key={event.id}>
               <a href={event.link}>{event.title}</a>
             </ListItem>

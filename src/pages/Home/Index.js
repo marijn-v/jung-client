@@ -11,6 +11,8 @@ export default function Home() {
   const dispatch = useDispatch();
   const events = useSelector(selectEvents);
 
+  const sortedEvents = [...events].sort((a, b) => b.date - a.date);
+
   useEffect(() => {
     dispatch(fetchEvents());
   }, []);
@@ -19,7 +21,7 @@ export default function Home() {
     <Box sx={{ display: "flex" }}>
       <Sidebar />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        {events.map((event) => {
+        {sortedEvents.map((event) => {
           return <EventCard key={event.id} event={event} />; // pass down as props
         })}{" "}
       </Box>
