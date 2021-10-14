@@ -7,7 +7,6 @@ export const eventsFetched = (listOfEvents) => ({
   payload: listOfEvents, // [{}, {}]
 });
 
-// add try / catch
 export function fetchEvents() {
   return async function thunk(dispatch, getState) {
     try {

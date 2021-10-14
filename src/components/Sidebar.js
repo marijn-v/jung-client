@@ -11,7 +11,10 @@ import { selectEvents } from "../store/event/selectors";
 export default function PinnedSubheaderList() {
   const events = useSelector(selectEvents);
 
-  const sortedEvents = [...events].sort((a, b) => b.date - a.date);
+  const sortedEvents = [...events].sort((a, b) => {
+    // console.log("sort", moment(b.date), moment(a.date));
+    return moment(a.date) - moment(b.date);
+  });
 
   return (
     <List

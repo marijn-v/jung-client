@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Box from "@mui/material/Box";
+import moment from "moment";
 
 import { fetchEvents } from "../../store/event/actions";
 import { selectEvents } from "../../store/event/selectors";
@@ -11,8 +12,10 @@ export default function Home() {
   const dispatch = useDispatch();
   const events = useSelector(selectEvents);
 
-  const sortedEvents = [...events].sort((a, b) => b.date - a.date);
-
+  const sortedEvents = [...events].sort((a, b) => {
+    // console.log("sort", moment(b.date), moment(a.date));
+    return moment(a.date) - moment(b.date);
+  });
   useEffect(() => {
     dispatch(fetchEvents());
   }, []);
