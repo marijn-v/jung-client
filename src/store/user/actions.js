@@ -12,13 +12,6 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID";
 export const LOG_OUT = "LOG_OUT";
 
-export const ADD_EVENT_SUCCESS = "ADD_EVENT_SUCCESS";
-
-const addEventSuccess = (postEvent) => ({
-  type: ADD_EVENT_SUCCESS,
-  payload: postEvent,
-});
-
 const loginSuccess = (userWithToken) => {
   return {
     type: LOGIN_SUCCESS,
@@ -113,61 +106,6 @@ export const getUserWithStoredToken = () => {
       // get rid of the token by logging out
       dispatch(logOut());
       dispatch(appDoneLoading());
-    }
-  };
-};
-
-// add event
-export const addEvent = (title, image, date, description, link, venueId) => {
-  return async (dispatch, getState) => {
-    // space and token are inside User
-    const reduxstate = getState();
-    const token = reduxstate.user.token;
-    const userId = reduxstate.user.id;
-
-    dispatch(appLoading());
-
-    console.log("user id", userId);
-    console.log("token post story", token);
-    console.log(
-      "title, image, date, description, link, venueId",
-      title,
-      image,
-      date,
-      description,
-      link,
-      venueId
-    );
-
-    try {
-      const response = await axios.post(
-        `${apiUrl}/events/${userId}/add`,
-        {
-          title,
-          image,
-          date,
-          description,
-          link,
-          venueId,
-          userId: userId,
-        },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      console.log("response", response.data);
-      // dispatch(response.data);
-
-      dispatch(
-        showMessageWithTimeout(
-          "success",
-          false,
-          "Event added successfully",
-          3000
-        )
-      );
-      dispatch(addEventSuccess(response.data));
-      dispatch(appDoneLoading());
-    } catch (e) {
-      console.log(e.message);
     }
   };
 };

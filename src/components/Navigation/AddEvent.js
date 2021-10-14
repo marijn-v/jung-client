@@ -12,15 +12,15 @@ import DateTimePicker from "@mui/lab/DateTimePicker";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import AdapterMoment from "@mui/lab/AdapterMoment";
 import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 
-import { addEvent } from "../../store/user/actions";
-import { selectEvents } from "../../store/event/selectors";
+import { addEvent } from "../../store/event/actions";
+import { selectEvents, selectVenues } from "../../store/event/selectors";
 
 export default function AddEvent() {
   const dispatch = useDispatch();
   const events = useSelector(selectEvents);
+  const venues = useSelector(selectVenues);
 
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
@@ -66,7 +66,7 @@ export default function AddEvent() {
 
   if (!events.length > 0) return <div>Loading...</div>;
 
-  console.log("my events", events);
+  // console.log("my events", events);
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
@@ -111,7 +111,7 @@ export default function AddEvent() {
                 label="date / time"
                 value={date}
                 onChange={(value) => {
-                  console.log("the event", value);
+                  // console.log("the event", value);
                   setDate(value);
                 }}
                 renderInput={(params) => <TextField {...params} />}
@@ -156,16 +156,13 @@ export default function AddEvent() {
               fullWidth
               variant="standard"
             >
-              {events[0] &&
-                events.map((event) => {
-                  const { venue } = event;
-                  // console.log("the venue item", event);
-                  return (
-                    <MenuItem key={venue.id} value={venue.id}>
-                      {venue.name}{" "}
-                    </MenuItem>
-                  );
-                })}
+              {venues.map((venue) => {
+                return (
+                  <MenuItem key={venue.id} value={venue.id}>
+                    {venue.name}{" "}
+                  </MenuItem>
+                );
+              })}
             </TextField>
           </Stack>
         </DialogContent>

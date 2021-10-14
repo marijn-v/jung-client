@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Box from "@mui/material/Box";
 import moment from "moment";
 
-import { fetchEvents } from "../../store/event/actions";
+import { fetchEventsAndVenues } from "../../store/event/actions";
 import { selectEvents } from "../../store/event/selectors";
 import EventCard from "../../components/EventCard";
 import Sidebar from "../../components/Sidebar";
@@ -17,7 +17,7 @@ export default function Home() {
     return moment(a.date) - moment(b.date);
   });
   useEffect(() => {
-    dispatch(fetchEvents());
+    dispatch(fetchEventsAndVenues());
   }, []);
 
   return (

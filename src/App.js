@@ -8,6 +8,7 @@ import MessageBox from "./components/MessageBox";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Home from "./pages/Home/Index";
+import Venues from "./pages/Venues";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
@@ -27,6 +28,7 @@ function App() {
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <Switch>
+        <Route path="/venues" component={Venues} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route exact path="/" component={Home} />
