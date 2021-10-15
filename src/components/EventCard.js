@@ -15,7 +15,7 @@ export default function EventCard(props) {
           style={{ width: "50%" }}
         ></img>
         <h4>{event.title}</h4>
-        <p>{moment(event.date).format("ddd, MMM   Do")}</p>
+        <p>{moment(event.date).format("ddd, MMM   Do, LT")}</p>
         <a href={event.link}>Link</a>
         <p>{event.description}</p>
       </div>
