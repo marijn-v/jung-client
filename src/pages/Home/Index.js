@@ -5,7 +5,7 @@ import moment from "moment";
 
 import { fetchEventsAndVenues } from "../../store/event/actions";
 import { selectEvents } from "../../store/event/selectors";
-import EventCard from "../../components/EventCard";
+import EventCard from "../../components/EventCard/EventCard";
 import Sidebar from "../../components/Sidebar";
 
 export default function Home() {

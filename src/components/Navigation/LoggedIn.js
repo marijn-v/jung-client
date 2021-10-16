@@ -12,9 +12,11 @@ export default function LoggedIn() {
   const user = useSelector(selectUser);
   return (
     <>
-      <NavbarItem path="/venues" linkText="Venues" />
-      <AddEvent />
-      <Nav.Item style={{ padding: ".5rem 1rem" }}>{user.email}</Nav.Item>
+      {user.isProfessional ? (
+        <NavbarItem path="/venues" linkText="Venues" />
+      ) : null}
+      {user.isProfessional ? <AddEvent /> : null}
+      <Nav.Item style={{ padding: ".5rem 1rem" }}>{user.name}</Nav.Item>
       <Button onClick={() => dispatch(logOut())}>Logout</Button>
     </>
   );

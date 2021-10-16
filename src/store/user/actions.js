@@ -1,6 +1,7 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
 import { selectToken, selectUser } from "./selectors";
+import { selectEvents } from "../event/selectors";
 import {
   appLoading,
   appDoneLoading,
@@ -26,7 +27,42 @@ const tokenStillValid = (userWithoutToken) => ({
 
 export const logOut = () => ({ type: LOG_OUT });
 
-export const signUp = (name, email, password) => {
+// put attender
+export const addAttenderSuccess = (userAndEvent) => ({
+  type: "user/add",
+  payload: userAndEvent,
+});
+
+export const attend = () => {
+  return async (dispatch, getState) => {
+    const user = selectUser(getState);
+    const event = selectEvents(getState);
+
+    console.log("user & event", user, event);
+
+    try {
+      const response = await axios.put(`${apiUrl}/attend`, {
+        userId: user.id,
+        eventId: event.id,
+      });
+
+      console.log("response", response);
+
+      dispatch(addAttenderSuccess(response.data));
+      dispatch(
+        showMessageWithTimeout(
+          "success",
+          true,
+          "You are now attending this event"
+        )
+      );
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+};
+
+export const signUp = (name, email, password, isProfessional) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
     try {
@@ -34,7 +70,10 @@ export const signUp = (name, email, password) => {
         name,
         email,
         password,
+        isProfessional,
       });
+
+      console.log("action signup", name, email, password, isProfessional);
 
       dispatch(loginSuccess(response.data));
       dispatch(showMessageWithTimeout("success", true, "account created"));
