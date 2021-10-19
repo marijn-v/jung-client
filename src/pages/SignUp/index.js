@@ -79,11 +79,7 @@ export default function SignUp() {
               type="checkbox"
               value={isProfessional}
               id="flexCheckDefault"
-              onChange={() =>
-                isProfessional
-                  ? setIsProfessional(false)
-                  : setIsProfessional(true)
-              }
+              onChange={() => setIsProfessional(!isProfessional)}
             ></input>
             <label className="form-check-label" for="flexCheckDefault">
               Are you an artist and/or promoter? Please check the box.

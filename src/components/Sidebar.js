@@ -19,7 +19,7 @@ export default function PinnedSubheaderList() {
   return (
     <List
       sx={{
-        width: "100%",
+        width: "90%",
         maxWidth: 360,
         bgcolor: "background.paper",
         position: "relative",
@@ -27,18 +27,22 @@ export default function PinnedSubheaderList() {
         maxHeight: "auto",
         borderRight: 1,
         "& ul": { padding: 0 },
+        color: "#ff3d00",
+        backgroundColor: "#eeeeee",
       }}
       subheader={<li />}
     >
       {sortedEvents.map((event) => (
         <li>
           <ul>
-            <ListSubheader>
+            <ListSubheader sx={{ backgroundColor: "#eeeeee" }}>
               {moment(event.date).format("ddd, MMM   Do")}
             </ListSubheader>
 
             <ListItem key={event.id}>
-              <a href={event.link}>{event.title}</a>
+              <a style={{ color: "#ff3d00" }} href={event.link}>
+                {event.title}
+              </a>
             </ListItem>
           </ul>
         </li>

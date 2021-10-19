@@ -22,8 +22,19 @@ export default function Home() {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <Sidebar />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box sx={{ display: "flex", flexShrink: 0, minHeight: "100vh" }}>
+        <Sidebar />
+      </Box>
+      <Box
+        component="main"
+        sx={{
+          display: "flex",
+          alignSelf: "flex-end",
+          flexWrap: "wrap",
+          justifyContent: "space-around",
+          marginBottom: "20px",
+        }}
+      >
         {sortedEvents.map((event) => {
           return <EventCard key={event.id} event={event} />; // pass down as props
         })}{" "}

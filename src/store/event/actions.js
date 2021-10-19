@@ -90,3 +90,36 @@ export function fetchEventsAndVenues() {
     }
   };
 }
+
+// send email
+export const newEmail = (email) => ({
+  type: "even/sendEmail",
+  payload: email,
+});
+
+export function sendEmail(message, eventId) {
+  return async (dispatch, getState) => {
+    const reduxstate = getState();
+    const token = reduxstate.user.token;
+    const userId = reduxstate.user.id;
+
+    console.log("user id", userId);
+    console.log("token post story", token);
+    console.log("message, eventId", message, eventId);
+    try {
+      const response = await axios.post(
+        `${apiUrl}/email/send`,
+        {
+          message,
+          eventId,
+          userId: userId,
+        },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      dispatch(newEmail(response.data));
+      console.log("response email", response.data);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+}

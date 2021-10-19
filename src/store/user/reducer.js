@@ -18,7 +18,12 @@ export default (state = initialState, action) => {
 
     case TOKEN_STILL_VALID:
       return { ...state, ...action.payload };
-
+    case "user/add": {
+      return {
+        ...state,
+        attending: [...state.attending, action.payload],
+      };
+    }
     default:
       return state;
   }

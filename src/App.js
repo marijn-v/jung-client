@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import "./App.css";
 
+import Container from "@mui/material/Container";
+
 import { Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Loading from "./components/Loading";
@@ -23,7 +25,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: "#eeeeee" }}>
       <Navigation />
       <MessageBox />
       {isLoading ? <Loading /> : null}

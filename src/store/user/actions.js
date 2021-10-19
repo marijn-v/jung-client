@@ -33,19 +33,23 @@ export const addAttenderSuccess = (userAndEvent) => ({
   payload: userAndEvent,
 });
 
-export const attend = () => {
+export const attend = (eventId) => {
   return async (dispatch, getState) => {
-    const user = selectUser(getState);
-    const event = selectEvents(getState);
+    const user = selectUser(getState());
+    // const event = selectEvents(getState());
+    // const token = selectToken(getState());
 
-    console.log("user & event", user, event);
+    console.log("user", user);
+    console.log("event", eventId);
 
     try {
-      const response = await axios.put(`${apiUrl}/attend`, {
-        userId: user.id,
-        eventId: event.id,
-      });
-
+      const response = await axios.put(
+        `${apiUrl}/events/${eventId}/user/${user.id}`
+        // ,
+        // {
+        //   headers: { Authorization: `Bearer ${token}` },
+        // }
+      );
       console.log("response", response);
 
       dispatch(addAttenderSuccess(response.data));
@@ -120,7 +124,7 @@ export const getUserWithStoredToken = () => {
   return async (dispatch, getState) => {
     // get token from the state
     const token = selectToken(getState());
-
+    // console.log("token", token);
     // if we have no token, stop
     if (token === null) return;
 

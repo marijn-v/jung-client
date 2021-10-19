@@ -35,15 +35,6 @@ export default function AddEvent() {
     setOpen(true);
   };
 
-  // console.log("new event", {
-  //   title,
-  //   image,
-  //   date,
-  //   description,
-  //   link,
-  //   venueId,
-  // });
-
   const handleClose = (event) => {
     setOpen(false);
   };
@@ -69,7 +60,16 @@ export default function AddEvent() {
   // console.log("my events", events);
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button
+        variant="contained"
+        sx={{
+          bgcolor: "#eeeeee",
+          ":hover": { bgcolor: "#ff3d00" },
+          borderRadius: 0,
+          color: "#ff3d00",
+        }}
+        onClick={handleClickOpen}
+      >
         add event
       </Button>
       <Dialog open={open} onClose={handleClose}>
@@ -77,8 +77,7 @@ export default function AddEvent() {
         <DialogContent>
           <Stack spacing={3}>
             {/* <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
+            Some possible text
           </DialogContentText> */}
             <TextField
               autoFocus
@@ -105,8 +104,8 @@ export default function AddEvent() {
             />
             <LocalizationProvider dateAdapter={AdapterMoment}>
               <DateTimePicker
-                // autoFocus
-                // margin="dense"
+                autoFocus
+                margin="dense"
                 // id="date+time picker"
                 label="date / time"
                 value={date}
