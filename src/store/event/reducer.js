@@ -1,4 +1,3 @@
-import axios from "axios";
 import { ADD_EVENT_SUCCESS } from "./actions";
 
 const initialState = {
