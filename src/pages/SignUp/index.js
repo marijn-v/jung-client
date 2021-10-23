@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
+import Button from "@mui/material/Button";
 import { signUp } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
@@ -39,7 +39,7 @@ export default function SignUp() {
   return (
     <Container>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-        <h1 className="mt-5 mb-5">Signup</h1>
+        <h1 className="mt-5 mb-5">SIGN UP</h1>
         <Form.Group controlId="formBasicName">
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -87,11 +87,34 @@ export default function SignUp() {
           </div>
         </Form.Group>
         <Form.Group className="mt-5">
-          <Button variant="primary" type="submit" onClick={submitForm}>
+          <Button
+            component={Link}
+            to="/signup"
+            variant="contained"
+            sx={{
+              bgcolor: "#ff3d00",
+              ":hover": { bgcolor: "#ff3d00", color: "white" },
+              borderRadius: 0,
+            }}
+            disableRipple
+            type="submit"
+            onClick={submitForm}
+          >
             Sign up
           </Button>
         </Form.Group>
-        <Link to="/login">Click here to log in</Link>
+        <Button
+          component={Link}
+          to="/login"
+          sx={{
+            color: "#ff3d00",
+            ":hover": { color: "#ff3d00", bgcolor: "transparent" },
+            textDecoration: "none",
+          }}
+          disableRipple
+        >
+          log in
+        </Button>
       </Form>
     </Container>
   );
