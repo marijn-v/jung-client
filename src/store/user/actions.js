@@ -39,8 +39,8 @@ export const attend = (eventId) => {
     // const event = selectEvents(getState());
     // const token = selectToken(getState());
 
-    console.log("user", user);
-    console.log("event", eventId);
+    // console.log("user", user);
+    // console.log("event", eventId);
 
     try {
       const response = await axios.put(
@@ -50,7 +50,7 @@ export const attend = (eventId) => {
         //   headers: { Authorization: `Bearer ${token}` },
         // }
       );
-      console.log("response", response);
+      // console.log("response", response);
 
       dispatch(addAttenderSuccess(response.data));
       dispatch(
@@ -77,7 +77,7 @@ export const signUp = (name, email, password, isProfessional) => {
         isProfessional,
       });
 
-      console.log("action signup", name, email, password, isProfessional);
+      // console.log("action signup", name, email, password, isProfessional);
 
       dispatch(loginSuccess(response.data));
       dispatch(showMessageWithTimeout("success", true, "account created"));

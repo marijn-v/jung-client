@@ -42,14 +42,14 @@ export default function AddEvent() {
   function submitEvent(event) {
     event.preventDefault();
 
-    console.log("new event", {
-      title,
-      image,
-      date,
-      description,
-      link,
-      venueId,
-    });
+    // console.log("new event", {
+    //   title,
+    //   image,
+    //   date,
+    //   description,
+    //   link,
+    //   venueId,
+    // });
 
     dispatch(addEvent(title, image, date, description, link, venueId));
     handleClose();
@@ -58,16 +58,19 @@ export default function AddEvent() {
   if (!events.length > 0) return <div>Loading...</div>;
 
   // console.log("my events", events);
+
   return (
     <div>
       <Button
         variant="contained"
         sx={{
           bgcolor: "#eeeeee",
-          ":hover": { bgcolor: "#ff3d00" },
+          ":hover": { background: "none", boxShadow: "none" },
           borderRadius: 0,
           color: "#ff3d00",
+          boxShadow: "none",
         }}
+        disableRipple
         onClick={handleClickOpen}
       >
         add event
@@ -106,16 +109,12 @@ export default function AddEvent() {
               <DateTimePicker
                 autoFocus
                 margin="dense"
-                // id="date+time picker"
                 label="date / time"
                 value={date}
                 onChange={(value) => {
-                  // console.log("the event", value);
                   setDate(value);
                 }}
                 renderInput={(params) => <TextField {...params} />}
-                // fullWidth
-                // variant="standard"
               />
             </LocalizationProvider>
 
@@ -149,7 +148,7 @@ export default function AddEvent() {
               label="select venue"
               value={venueId}
               onChange={(event) => {
-                console.log("the event value", event.target.value);
+                // console.log("the event value", event.target.value);
                 setVenueId(event.target.value);
               }}
               fullWidth

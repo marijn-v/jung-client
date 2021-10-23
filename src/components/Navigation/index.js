@@ -9,7 +9,6 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 
 import { selectToken } from "../../store/user/selectors";
-// import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 
@@ -48,40 +47,16 @@ export default function Navigation() {
           ></Typography>
           <Box
             color="inherit"
-            sx={{ display: "flex", alignContent: "flex-end" }}
+            sx={{
+              display: "flex",
+              alignContent: "flex-end",
+              alignItems: "baseline",
+            }}
           >
             {loginLogoutControls}
           </Box>
         </Toolbar>
       </AppBar>
     </Box>
-
-    // <Box sx={{ flexGrow: 1 }}>
-    //   <AppBar
-    //     position="static"
-    //     sx={{ bgcolor: "white" }}
-    //     // style={{ marginRight: "10px", marginLeft: "10px" }}
-    //   >
-    //     <Toolbar>
-    //       {/* <Navbar.Brand as={NavLink} to="/">
-    //         JUNG
-    //       </Navbar.Brand> */}
-    //       <Typography
-    //         variant="h6"
-    //         noWrap
-    //         component="div"
-    //         sx={{ display: { xs: "none", sm: "block" } }}
-    //         as={NavLink}
-    //         to="/"
-    //       ></Typography>
-    //       {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    //       <Navbar.Collapse id="basic-navbar-nav">
-    //         <Nav style={{ width: "100%" }} fill>
-    //           {loginLogoutControls}
-    //         </Nav>
-    //       </Navbar.Collapse> */}
-    //     </Toolbar>
-    //   </AppBar>
-    // </Box>
   );
 }

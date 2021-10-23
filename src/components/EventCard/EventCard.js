@@ -15,13 +15,13 @@ import { selectUser } from "../../store/user/selectors";
 
 export default function EventCard(props) {
   const { event } = props;
-  console.log("event prop", event);
+  // console.log("event prop", event);
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
   const userEventIds = user?.attending?.map((e) => e.id); // [1,2]
 
-  console.log(userEventIds, event.id);
+  // console.log(userEventIds, event.id);
 
   // user.attending => [{}, {}]
 

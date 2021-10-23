@@ -20,7 +20,7 @@ export default function eventReducer(state = initialState, action) {
     }
 
     case ADD_EVENT_SUCCESS: {
-      console.log("action feed", action.payload); // {...event+venue}
+      // console.log("action feed", action.payload); // {...event+venue}
 
       return { ...state, allEvents: [...state.allEvents, action.payload] };
     }

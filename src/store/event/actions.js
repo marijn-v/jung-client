@@ -23,17 +23,17 @@ export const addEvent = (title, image, date, description, link, venueId) => {
 
     // dispatch(appLoading());
 
-    console.log("user id", userId);
-    console.log("token post story", token);
-    console.log(
-      "title, image, date, description, link, venueId",
-      title,
-      image,
-      date,
-      description,
-      link,
-      venueId
-    );
+    // console.log("user id", userId);
+    // console.log("token post story", token);
+    // console.log(
+    //   "title, image, date, description, link, venueId",
+    //   title,
+    //   image,
+    //   date,
+    //   description,
+    //   link,
+    //   venueId
+    // );
 
     try {
       const response = await axios.post(
@@ -49,7 +49,7 @@ export const addEvent = (title, image, date, description, link, venueId) => {
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      console.log("response", response.data);
+      // console.log("response", response.data);
       // dispatch(response.data);
 
       dispatch(
@@ -103,9 +103,9 @@ export function sendEmail(message, eventId) {
     const token = reduxstate.user.token;
     const userId = reduxstate.user.id;
 
-    console.log("user id", userId);
-    console.log("token post story", token);
-    console.log("message, eventId", message, eventId);
+    // console.log("user id", userId);
+    // console.log("token post story", token);
+    // console.log("message, eventId", message, eventId);
     try {
       const response = await axios.post(
         `${apiUrl}/email/send`,
@@ -117,7 +117,7 @@ export function sendEmail(message, eventId) {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       dispatch(newEmail(response.data));
-      console.log("response email", response.data);
+      // console.log("response email", response.data);
     } catch (e) {
       console.log(e.message);
     }

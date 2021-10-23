@@ -17,7 +17,7 @@ export default function SignUp() {
   const token = useSelector(selectToken);
   const history = useHistory();
 
-  console.log("check", isProfessional);
+  // console.log("check", isProfessional);
 
   useEffect(() => {
     if (token !== null) {

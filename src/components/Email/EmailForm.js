@@ -32,9 +32,9 @@ export default function EmailForm(props) {
   function sendMessage(event) {
     event.preventDefault();
 
-    console.log("new email", {
-      message,
-    });
+    // console.log("new email", {
+    //   message,
+    // });
 
     dispatch(sendEmail(message, props.eventId));
     handleClose();

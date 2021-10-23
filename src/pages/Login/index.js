@@ -22,7 +22,7 @@ export default function SignUp() {
   }, [token, history]);
 
   function submitForm(event) {
-    console.log("hi");
+    // console.log("hi");
     event.preventDefault();
 
     dispatch(login(email, password));
