@@ -96,7 +96,7 @@ export default function SignUp() {
               ":hover": { bgcolor: "#ff3d00", color: "white" },
               borderRadius: 0,
             }}
-            disableRipple
+            disableripple
             type="submit"
             onClick={submitForm}
           >
