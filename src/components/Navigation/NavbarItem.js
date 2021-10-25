@@ -1,13 +1,21 @@
 import React from "react";
-import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
+
+import Button from "@mui/material/Button";
 
 export default function NavbarItem(props) {
   return (
-    <Nav.Item>
-      <Nav.Link as={NavLink} to={props.path}>
-        {props.linkText}
-      </Nav.Link>
-    </Nav.Item>
+    <Button
+      component={NavLink}
+      to={props.path}
+      sx={{
+        color: "#ff3d00",
+        ":hover": { color: "#ff3d00", bgcolor: "transparent" },
+        textDecoration: "none",
+      }}
+      disableripple
+    >
+      {props.linkText}
+    </Button>
   );
 }

@@ -1,10 +1,6 @@
 import axios from "axios";
 import { apiUrl } from "../../config/constants";
-import {
-  appLoading,
-  appDoneLoading,
-  showMessageWithTimeout,
-} from "../appState/actions";
+import { showMessageWithTimeout } from "../appState/actions";
 
 export const ADD_EVENT_SUCCESS = "ADD_EVENT_SUCCESS";
 
@@ -23,17 +19,17 @@ export const addEvent = (title, image, date, description, link, venueId) => {
 
     // dispatch(appLoading());
 
-    console.log("user id", userId);
-    console.log("token post story", token);
-    console.log(
-      "title, image, date, description, link, venueId",
-      title,
-      image,
-      date,
-      description,
-      link,
-      venueId
-    );
+    // console.log("user id", userId);
+    // console.log("token post story", token);
+    // console.log(
+    //   "title, image, date, description, link, venueId",
+    //   title,
+    //   image,
+    //   date,
+    //   description,
+    //   link,
+    //   venueId
+    // );
 
     try {
       const response = await axios.post(
@@ -49,7 +45,7 @@ export const addEvent = (title, image, date, description, link, venueId) => {
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      console.log("response", response.data);
+      // console.log("response", response.data);
       // dispatch(response.data);
 
       dispatch(
@@ -85,6 +81,39 @@ export function fetchEventsAndVenues() {
       dispatch(
         dataFetched({ events: response.data, venues: venueResponse.data })
       ); // dispatch to backend via thunk/url
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+}
+
+// send email
+export const newEmail = (email) => ({
+  type: "even/sendEmail",
+  payload: email,
+});
+
+export function sendEmail(message, eventId) {
+  return async (dispatch, getState) => {
+    const reduxstate = getState();
+    const token = reduxstate.user.token;
+    const userId = reduxstate.user.id;
+
+    // console.log("user id", userId);
+    // console.log("token post story", token);
+    // console.log("message, eventId", message, eventId);
+    try {
+      const response = await axios.post(
+        `${apiUrl}/email/send`,
+        {
+          message,
+          eventId,
+          userId: userId,
+        },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      dispatch(newEmail(response.data));
+      // console.log("response email", response.data);
     } catch (e) {
       console.log(e.message);
     }
