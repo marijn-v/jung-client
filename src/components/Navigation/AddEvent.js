@@ -70,7 +70,7 @@ export default function AddEvent() {
           color: "#ff3d00",
           boxShadow: "none",
         }}
-        disableRipple
+        disableripple
         onClick={handleClickOpen}
       >
         add event

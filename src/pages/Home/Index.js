@@ -18,7 +18,7 @@ export default function Home() {
   });
   useEffect(() => {
     dispatch(fetchEventsAndVenues());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Box sx={{ display: "flex" }}>

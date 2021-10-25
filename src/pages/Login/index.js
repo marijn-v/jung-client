@@ -83,7 +83,7 @@ export default function SignUp() {
             ":hover": { color: "#ff3d00", bgcolor: "transparent" },
             textDecoration: "none",
           }}
-          disableRipple
+          disableripple
         >
           Sign up
         </Button>

@@ -1,10 +1,6 @@
 import axios from "axios";
 import { apiUrl } from "../../config/constants";
-import {
-  appLoading,
-  appDoneLoading,
-  showMessageWithTimeout,
-} from "../appState/actions";
+import { showMessageWithTimeout } from "../appState/actions";
 
 export const ADD_EVENT_SUCCESS = "ADD_EVENT_SUCCESS";
 

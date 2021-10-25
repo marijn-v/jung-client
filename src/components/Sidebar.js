@@ -32,7 +32,7 @@ export default function PinnedSubheaderList() {
       subheader={<li />}
     >
       {sortedEvents.map((event) => (
-        <li>
+        <li key={event.id}>
           <ul>
             <ListSubheader sx={{ backgroundColor: "#eeeeee" }}>
               {moment(event.date).format("ddd, MMM   Do")}

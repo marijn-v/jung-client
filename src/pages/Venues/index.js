@@ -15,7 +15,7 @@ export default function Venues() {
 
   useEffect(() => {
     dispatch(fetchEventsAndVenues());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Box>
