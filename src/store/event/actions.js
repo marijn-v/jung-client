@@ -19,18 +19,6 @@ export const addEvent = (title, image, date, description, link, venueId) => {
 
     // dispatch(appLoading());
 
-    // console.log("user id", userId);
-    // console.log("token post story", token);
-    // console.log(
-    //   "title, image, date, description, link, venueId",
-    //   title,
-    //   image,
-    //   date,
-    //   description,
-    //   link,
-    //   venueId
-    // );
-
     try {
       const response = await axios.post(
         `${apiUrl}/events/${userId}/add`,
@@ -46,7 +34,6 @@ export const addEvent = (title, image, date, description, link, venueId) => {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       // console.log("response", response.data);
-      // dispatch(response.data);
 
       dispatch(
         showMessageWithTimeout(
@@ -59,7 +46,6 @@ export const addEvent = (title, image, date, description, link, venueId) => {
       // Once we know the event is on the Database
       // We try to add it to redux
       dispatch(addEventSuccess(response.data));
-      // dispatch(appDoneLoading());
     } catch (e) {
       console.log(e.message);
     }

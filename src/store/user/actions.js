@@ -35,9 +35,6 @@ export const addAttenderSuccess = (userAndEvent) => ({
 export const attend = (eventId) => {
   return async (dispatch, getState) => {
     const user = selectUser(getState());
-    // const event = selectEvents(getState());
-    // const token = selectToken(getState());
-
     // console.log("user", user);
     // console.log("event", eventId);
 

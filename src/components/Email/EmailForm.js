@@ -11,11 +11,9 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 
 import { sendEmail } from "../../store/event/actions";
-// import { selectEvents } from "../../store/event/selectors";
 
 export default function EmailForm(props) {
   const dispatch = useDispatch();
-  // const events = useSelector(selectEvents);
 
   const [message, setMessage] = useState("");
 

@@ -36,7 +36,6 @@ export default function EventCard(props) {
               bgcolor: "primary.white",
               "&:hover": {
                 backgroundColor: "grey",
-                // opacity: [0.9, 0.8, 0.7],
               },
             }}
           >
