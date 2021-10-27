@@ -21,7 +21,7 @@ export default function Home() {
   }, [dispatch]);
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", backgroundColor: "#eeeeee" }}>
       <Box sx={{ display: "flex", flexShrink: 0, minHeight: "100vh" }}>
         <Sidebar />
       </Box>
