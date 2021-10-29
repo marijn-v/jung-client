@@ -26,16 +26,6 @@ export default function Home() {
       <Box sx={{ display: "flex", flexShrink: 0, minHeight: "100vh" }}>
         <Sidebar />
       </Box>
-      {/* <Box
-        component="main"
-        sx={{
-          display: "flex",
-          alignSelf: "flex-end",
-          flexWrap: "wrap",
-          justifyContent: "space-around",
-          marginBottom: "20px",
-        }}
-      > */}
       <Masonry
         breakpointCols={3}
         className="my-masonry-grid"
@@ -46,7 +36,6 @@ export default function Home() {
           return <EventCard key={index} event={event} />; // pass down as props
         })}
       </Masonry>
-      {/* </Box> */}
     </Box>
   );
 }

@@ -27,7 +27,13 @@ export default function EventCard(props) {
 
   return (
     <div>
-      <Card sx={{ maxWidth: 345, margin: "10px", bgcolor: "#eeeeee" }}>
+      <Card
+        sx={{
+          maxWidth: 345,
+          margin: "10px",
+          bgcolor: "#eeeeee",
+        }}
+      >
         <CardContent>
           <Box
             sx={{
@@ -69,6 +75,7 @@ export default function EventCard(props) {
                   <Typography
                     sx={{
                       marginRight: "10px",
+                      color: "#ff3d00",
                     }}
                     variant="button"
                     display="block"
