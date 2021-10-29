@@ -42,15 +42,6 @@ export default function AddEvent() {
   function submitEvent(event) {
     event.preventDefault();
 
-    // console.log("new event", {
-    //   title,
-    //   image,
-    //   date,
-    //   description,
-    //   link,
-    //   venueId,
-    // });
-
     dispatch(addEvent(title, image, date, description, link, venueId));
     handleClose();
   }
