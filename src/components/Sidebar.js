@@ -26,7 +26,6 @@ export default function PinnedSubheaderList() {
         maxHeight: "auto",
         borderRight: 1,
         "& ul": { padding: 0 },
-        color: "#ff3d00",
         backgroundColor: "#eeeeee",
       }}
       subheader={<li />}

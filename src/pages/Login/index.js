@@ -61,7 +61,6 @@ export default function SignUp() {
             variant="contained"
             sx={{
               marginRight: "10px",
-              bgcolor: "#ff3d00",
               ":hover": { bgcolor: "#ff3d00" },
               borderRadius: 0,
             }}
@@ -79,7 +78,7 @@ export default function SignUp() {
           component={Link}
           to="/signup"
           sx={{
-            color: "#ff3d00",
+            // color: "#ff3d00",
             ":hover": { color: "#ff3d00", bgcolor: "transparent" },
             textDecoration: "none",
           }}
