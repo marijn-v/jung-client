@@ -113,7 +113,7 @@ export default function SignUp() {
           }}
           disableripple
         >
-          log in
+          login
         </Button>
       </Form>
     </Container>
