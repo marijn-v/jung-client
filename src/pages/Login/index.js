@@ -34,7 +34,7 @@ export default function SignUp() {
   return (
     <Container>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-        <h1 className="mt-5 mb-5">LOG IN</h1>
+        <h1 className="mt-5 mb-5">LOGIN</h1>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -61,14 +61,13 @@ export default function SignUp() {
             variant="contained"
             sx={{
               marginRight: "10px",
-              bgcolor: "#ff3d00",
               ":hover": { bgcolor: "#ff3d00" },
               borderRadius: 0,
             }}
             type="submit"
             onClick={submitForm}
           >
-            Log in
+            Login
           </Button>
         </Form.Group>
         {/* <Link to="/signup" style={{ textAlign: "center" }}>
@@ -79,7 +78,7 @@ export default function SignUp() {
           component={Link}
           to="/signup"
           sx={{
-            color: "#ff3d00",
+            // color: "#ff3d00",
             ":hover": { color: "#ff3d00", bgcolor: "transparent" },
             textDecoration: "none",
           }}

@@ -13,6 +13,10 @@ const theme = createTheme({
   typography: {
     fontFamily: "Arial",
   },
+  palette: {
+    primary: { main: "#ff3d00" },
+    text: { primary: "#ff3d00", secondary: "#212121" },
+  },
 });
 
 ReactDOM.render(

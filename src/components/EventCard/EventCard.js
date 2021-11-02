@@ -39,7 +39,6 @@ export default function EventCard(props) {
             sx={{
               width: 300,
               height: "auto",
-              bgcolor: "primary.white",
               "&:hover": {
                 backgroundColor: "grey",
               },
@@ -51,17 +50,13 @@ export default function EventCard(props) {
               image={event.image}
               alt="poster event"
             />
-            <Typography
-              sx={{ fontSize: 24, color: "#ff3d00" }}
-              color="text.secondary"
-              gutterBottom
-            >
+            <Typography sx={{ fontSize: 24 }} gutterBottom>
               {event.title}
             </Typography>
             <Typography variant="overline" display="block" gutterBottom>
               {moment(event.date).format("ddd, MMM   Do, LT")}
             </Typography>
-            <Typography variant="body2" gutterBottom>
+            <Typography variant="body2" color="text.secondary" gutterBottom>
               {event.description}
             </Typography>
             <Typography variant="button" display="block" gutterBottom>
@@ -75,7 +70,6 @@ export default function EventCard(props) {
                   <Typography
                     sx={{
                       marginRight: "10px",
-                      color: "#ff3d00",
                     }}
                     variant="button"
                     display="block"
