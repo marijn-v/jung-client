@@ -4,6 +4,8 @@ import Box from "@mui/material/Box";
 import moment from "moment";
 import Masonry from "react-masonry-css";
 
+import "./home.css";
+
 import { fetchEventsAndVenues } from "../../store/event/actions";
 import { selectEvents } from "../../store/event/selectors";
 import EventCard from "../../components/EventCard/EventCard";
