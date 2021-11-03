@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
+import "./venues.css";
+
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
