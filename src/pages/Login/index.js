@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 
+import "./login.css";
+
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -57,19 +59,11 @@ export default function SignUp() {
           />
         </Form.Group>
         <Form.Group className="mt-5">
-          <Button
-            variant="contained"
-            sx={{
-              marginRight: "10px",
-              ":hover": { bgcolor: "#ff3d00" },
-              borderRadius: 0,
-            }}
-            type="submit"
-            onClick={submitForm}
-          >
-            Login
-          </Button>
+          <button type="submit" class="bttn-login" onClick={submitForm}>
+            LOGIN
+          </button>
         </Form.Group>
+
         {/* <Link to="/signup" style={{ textAlign: "center" }}>
           Click here to sign up
         </Link> */}
