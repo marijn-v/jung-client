@@ -11,7 +11,7 @@ export default function PinnedSubheaderList() {
   const events = useSelector(selectEvents);
 
   const sortedEvents = [...events].sort((a, b) => {
-    // console.log("sort", moment(b.date), moment(a.date));
+    // console.log("sort", moment(b.date), moment(a.date), moment());
     return moment(a.date) - moment(b.date);
   });
 
@@ -31,19 +31,20 @@ export default function PinnedSubheaderList() {
       subheader={<li />}
     >
       {sortedEvents.map((event) => (
-        <li key={event.id}>
-          <ul>
+        <ul key={event.id}>
+          {moment(event.date) > moment() ? (
             <ListSubheader sx={{ backgroundColor: "#eeeeee" }}>
               {moment(event.date).format("ddd, MMM   Do")}
             </ListSubheader>
-
-            <ListItem key={event.id}>
+          ) : null}
+          <ListItem key={event.id}>
+            {moment(event.date) > moment() ? (
               <a style={{ color: "#ff3d00" }} href={event.link}>
                 {event.title}
               </a>
-            </ListItem>
-          </ul>
-        </li>
+            ) : null}
+          </ListItem>
+        </ul>
       ))}
     </List>
   );
